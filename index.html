@@ -94,6 +94,7 @@
 
         <dl class="hero__stats reveal" data-reveal>
           <div><dt>3+</dt><dd>Years of experience</dd></div>
+          <div><dt>2+</dt><dd>Languages & Frameworks</dd></div>
           <div><dt>3.43<span>/4.0</span></dt><dd>GPA · accelerated degree</dd></div>
         </dl>
       </div>
@@ -233,68 +234,110 @@
       </div>
     </section>
 
-    <!-- ================= Projects (placeholder) ================= -->
+    <!-- ================= Projects ================= -->
     <section class="section section--alt" id="projects">
       <div class="container">
         <header class="section__head reveal" data-reveal>
           <span class="section__index">04</span>
           <h2 class="section__title">Selected Projects</h2>
-          <p class="section__note">A curated set of work — details coming soon.</p>
+          <p class="section__note">Production work across healthcare, government, and product teams — mostly PHP / Yii&nbsp;2 back ends.</p>
         </header>
 
         <div class="projects__grid">
-          <article class="project-card project-card--wide reveal" data-reveal>
-            <div class="project-card__body">
-              <p class="project-card__kicker">Healthcare · National platform</p>
-              <h3>Hakeem Healthcare System</h3>
-              <p>Contributions to Jordan's national electronic health record platform — feature development and enhancements on a large MUMPS / Yii&nbsp;2 codebase with VistA integration.</p>
-              <ul class="tags tags--sm"><li>Yii&nbsp;2</li><li>MUMPS</li><li>VistA</li></ul>
+          <!-- Featured -->
+          <article class="pcard pcard--featured reveal" data-reveal>
+            <p class="pcard__flag">Featured project</p>
+            <p class="pcard__domain">Healthcare · National platform</p>
+            <h3 class="pcard__title">Hakeem Healthcare System</h3>
+            <p class="pcard__summary">
+              Feature development and enhancements on <strong>Jordan's national electronic
+              health platform</strong> — a large MUMPS codebase with a Yii&nbsp;2 application
+              layer and VistA integration.
+            </p>
+
+            <dl class="pcard__meta">
+              <div>
+                <dt>What it does</dt>
+                <dd>Manages electronic health records and clinical workflows for public healthcare providers.</dd>
+              </div>
+              <div>
+                <dt>My role</dt>
+                <dd>Build and enhance existing modules, ship new features, and integrate with VistA-based systems.</dd>
+              </div>
+            </dl>
+
+            <div class="pcard__block">
+              <p class="pcard__block-label">Engineering focus</p>
+              <ul class="pcard__list">
+                <li>Contributing to a large, long-lived MUMPS system alongside a Yii&nbsp;2 (PHP) application layer.</li>
+                <li>Integrating with VistA systems for data exchange and interoperability across projects.</li>
+                <li>Healthcare-domain complexity: structured clinical data and regulated workflows.</li>
+              </ul>
+            </div>
+
+            <ul class="tags tags--sm"><li>MUMPS</li><li>Yii&nbsp;2</li><li>PHP</li><li>VistA</li></ul>
+
+            <div class="pcard__foot">
+              <span class="pcard__badge">Current work · EHS</span>
             </div>
           </article>
 
-          <article class="project-card reveal" data-reveal>
-            <div class="project-card__body">
-              <p class="project-card__kicker">Government</p>
-              <h3>Ministry of Justice solutions (Medical Commitee System)</h3>
-              <p>Digital solutions delivered for the Jordanian Ministry of Justice.</p>
-              <ul class="tags tags--sm"><li>Yii&nbsp;2</li><li>MySQL</li></ul>
+          <!-- Ministry of Justice -->
+          <article class="pcard reveal" data-reveal>
+            <p class="pcard__domain">Government · Justice sector</p>
+            <h3 class="pcard__title">Medical Committee System</h3>
+            <p class="pcard__summary">A web application for the Jordanian Ministry of Justice that digitizes medical committee case handling and record-keeping.</p>
+            <dl class="pcard__meta">
+              <div>
+                <dt>My role</dt>
+                <dd>Delivered application features on a Yii&nbsp;2 back end with a MySQL relational data model.</dd>
+              </div>
+            </dl>
+            <ul class="tags tags--sm"><li>Yii&nbsp;2</li><li>PHP</li><li>MySQL</li></ul>
+            <div class="pcard__foot">
+              <span class="pcard__badge pcard__badge--muted">Government · delivered</span>
             </div>
           </article>
 
-          <article class="project-card reveal" data-reveal>
-            <div class="project-card__body">
-              <p class="project-card__kicker">Private</p>
-              <h3>Suraxy - Mobile</h3>
-              <p>Mobile application for Suraxy platform.</p>
-              <ul class="tags tags--sm"><li>React Native</li></ul>
+          <!-- Suraxy -->
+          <article class="pcard reveal" data-reveal>
+            <p class="pcard__domain">Product · Private</p>
+            <h3 class="pcard__title">Suraxy Platform</h3>
+            <p class="pcard__summary">A cross-platform mobile app, backed by a web admin dashboard, for the Suraxy platform.</p>
+            <dl class="pcard__meta">
+              <div>
+                <dt>My role</dt>
+                <dd>Built the React&nbsp;Native mobile client — shipped to the App Store and Google Play — and worked on the web admin dashboard behind it.</dd>
+              </div>
+            </dl>
+            <ul class="tags tags--sm"><li>React&nbsp;Native</li><li>iOS</li><li>Android</li></ul>
+            <div class="pcard__foot">
+              <span class="pcard__badge">Live · App Store &amp; Google Play</span>
             </div>
-            <span class="project-card__soon">Published on App Store & Play Store</span>
           </article>
 
-          <article class="project-card reveal" data-reveal>
-            <div class="project-card__body">
-              <p class="project-card__kicker">Private</p>
-              <h3>Suraxy - Web Admin dashboard</h3>
-              <p>Laravel &amp; CodeIgniter applications and customized WordPress builds delivered at Ncit Solutions.</p>
-              <ul class="tags tags--sm"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li></ul>
+          <!-- Client apps -->
+          <article class="pcard reveal" data-reveal>
+            <p class="pcard__domain">Agency · Ncit Solutions</p>
+            <h3 class="pcard__title">Client Web Applications</h3>
+            <p class="pcard__summary">Production web apps and CMS builds delivered for a range of agency clients.</p>
+            <dl class="pcard__meta">
+              <div>
+                <dt>My role</dt>
+                <dd>Developed and maintained Laravel and CodeIgniter apps, customized WordPress themes and plugins, and coordinated delivery with clients through to release.</dd>
+              </div>
+            </dl>
+            <ul class="tags tags--sm"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li><li>jQuery</li><li>MySQL</li></ul>
+            <div class="pcard__foot">
+              <span class="pcard__badge pcard__badge--muted">2023 · agency delivery</span>
             </div>
-            <span class="project-card__soon">Published privately</span>
           </article>
 
-          <article class="project-card reveal" data-reveal>
-            <div class="project-card__body">
-              <p class="project-card__kicker">Agency work</p>
-              <h3>Client web applications</h3>
-              <p>Laravel &amp; CodeIgniter applications and customized WordPress builds delivered at Ncit Solutions.</p>
-              <ul class="tags tags--sm"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li></ul>
-            </div>
-            <span class="project-card__soon">Details soon</span>
-          </article>
-
-          <article class="project-card project-card--cta reveal" data-reveal>
-            <h3>Want to see more?</h3>
-            <p>Full case studies are in the works. In the meantime, my code is on GitHub.</p>
-            <a href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener" class="btn btn--sm btn--ghost">Visit GitHub →</a>
+          <!-- CTA -->
+          <article class="pcard pcard--cta reveal" data-reveal>
+            <h3 class="pcard__title">More on GitHub</h3>
+            <p class="pcard__summary">Personal projects, experiments, and code samples.</p>
+            <a href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener" class="btn btn--sm btn--ghost">View GitHub profile →</a>
           </article>
         </div>
       </div>
@@ -327,7 +370,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <p>© <span id="year">2023</span> Alaaldeen Hammad. Built with HTML, CSS &amp; JavaScript.</p>
+      <p>© <span id="year">2026</span> Alaaldeen Hammad. Built with HTML, CSS &amp; JavaScript.</p>
       <a href="#home" class="footer__top">Back to top ↑</a>
     </div>
   </footer>
