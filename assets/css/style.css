@@ -294,21 +294,50 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; font-weight: 7
 .hero__actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
 .hero__stats {
-  margin-top: 3.5rem;
+  margin-top: 3.25rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  max-width: 620px;
+  gap: 0.9rem;
+  max-width: 700px;
 }
-.hero__stats div {
-  padding: 1.1rem 1.2rem;
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.15rem 1.2rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), background-color 0.25s var(--ease);
 }
-.hero__stats dt { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; }
-.hero__stats dt span { font-size: 1rem; color: var(--text-faint); }
-.hero__stats dd { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+.hero__stat:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+}
+.hero__stat-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hero__stats dt {
+  font-family: var(--font-display);
+  font-size: 0.97rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.hero__stats dt strong { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
+.hero__stats dd {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
 
 .scroll-cue {
   position: absolute;
@@ -587,11 +616,20 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; font-weight: 7
   .projects__grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 620px) {
+  .hero__stats { grid-template-columns: 1fr; gap: 0.7rem; }
+  .hero__stat {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.85rem;
+    row-gap: 0.15rem;
+    align-items: center;
+  }
+  .hero__stat-icon { grid-column: 1; grid-row: 1 / span 2; align-self: center; }
+}
+
 @media (max-width: 560px) {
   .brand__name { display: none; }
-  .hero__stats { grid-template-columns: 1fr; }
-  .hero__stats div { display: flex; align-items: baseline; gap: 0.75rem; }
-  .hero__stats dd { margin-top: 0; }
   .contact__actions { flex-direction: column; }
   .contact__actions .btn { width: 100%; }
   .btn { width: 100%; }
