@@ -109,10 +109,15 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 /* ---------- Header ---------- */
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 100;
-  background: color-mix(in srgb, var(--paper) 86%, transparent);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
+}
+/* The blur lives on a pseudo-element: a backdrop-filter on the header itself would make it the
+   containing block for the fixed mobile menu and collapse that menu to the header's height. */
+.site-header::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 }
 .site-header.is-scrolled { border-bottom-color: var(--rule); }
 
@@ -164,8 +169,18 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 
 .mobile-nav { position: fixed; inset: var(--header-h) 0 0 0; background: var(--paper); padding: 1.5rem var(--gutter); overflow-y: auto; }
 .mobile-nav[hidden] { display: none; }
-.mobile-nav li + li { border-top: 1px solid var(--rule); }
-.mobile-nav a { display: block; padding: 1.1rem 0; font-family: var(--font-ui); font-weight: 800; font-stretch: 78%; font-size: clamp(2.4rem, 12vw, 3.6rem); letter-spacing: -0.02em; line-height: 1; }
+.mobile-nav ul { display: grid; gap: 0.4rem; }
+.mobile-nav a {
+  display: flex; align-items: center; gap: 1rem; padding: 0.8rem 0.6rem; border-radius: 14px;
+  font-family: var(--font-ui); font-weight: 600; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1.2;
+  transition: background-color 0.2s;
+}
+.mobile-nav a:hover, .mobile-nav a:active { background: var(--paper-2); }
+.mobile-nav .icon { flex: none; box-sizing: content-box; width: 22px; height: 22px; padding: 11px; border-radius: 12px; background: var(--paper-2); transition: background-color 0.2s, stroke 0.2s; }
+.mobile-nav a:hover .icon, .mobile-nav a:active .icon { background: var(--cyan); stroke: var(--deep); }
+
+/* Line icons (inline SVG, inherit the text colour) */
+.icon { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Sections (base) ---------- */
 .section { padding-block: clamp(4.5rem, 9vw, 8rem); background: var(--paper); }
@@ -345,7 +360,8 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 
 .contact__list { margin-top: clamp(2.5rem, 5vw, 4rem); border-top: 2px solid var(--deep); }
 .contact__list div { display: grid; grid-template-columns: minmax(6rem, 0.25fr) 1fr; gap: 1rem; padding: 0.9rem 0; border-bottom: 1px solid rgba(11,16,51,0.25); align-items: baseline; }
-.contact__list dt { font-family: var(--font-ui); font-size: 0.98rem; }
+.contact__list dt { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-ui); font-size: 0.98rem; }
+.contact__list .icon { flex: none; width: 20px; height: 20px; }
 .contact__list a { font-family: var(--font-ui); font-weight: 600; font-size: 1.3rem; overflow-wrap: anywhere; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
 .contact__list a:hover { border-bottom-color: var(--deep); }
 
