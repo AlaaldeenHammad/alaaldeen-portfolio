@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Alaaldeen Hammad — Full Stack Web Developer based in Amman, Jordan. 3+ years building PHP applications with Laravel, Yii 2, and modern front-end tooling." />
   <meta name="author" content="Alaaldeen Hammad" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="theme-color" content="#101317" />
 
   <meta property="og:title" content="Alaaldeen Hammad — Full Stack Web Developer" />
   <meta property="og:description" content="Full Stack Web Developer specializing in Laravel, Yii 2, and healthcare & government platforms." />
@@ -15,8 +15,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&display=swap" rel="stylesheet" />
 
+  <script src="assets/js/theme-init.js"></script>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
@@ -24,10 +25,10 @@
 
   <!-- ================= Header / Nav ================= -->
   <header class="site-header" id="siteHeader">
-    <div class="container header__inner">
+    <div class="header__inner">
       <a href="#home" class="brand" aria-label="Alaaldeen Hammad — home">
         <span class="brand__mark">AH</span>
-        <span class="brand__name">Alaaldeen&nbsp;Hammad</span>
+        <span class="brand__name">Alaaldeen Hammad</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -41,13 +42,13 @@
       </nav>
 
       <div class="header__actions">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false">
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 100-10 5 5 0 000 10zM12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z"/></svg>
         </button>
-        <a href="#contact" class="btn btn--sm btn--primary header__cta">Get in touch</a>
+        <a href="#contact" class="btn btn--sm btn--accent header__cta">Get in touch</a>
         <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-          <span></span><span></span><span></span>
+          <span></span><span></span>
         </button>
       </div>
     </div>
@@ -66,208 +67,211 @@
   <main id="main">
     <!-- ================= Hero ================= -->
     <section class="hero" id="home">
-      <div class="hero__bg" aria-hidden="true">
-        <div class="orb orb--1"></div>
-        <div class="orb orb--2"></div>
-        <div class="grid-overlay"></div>
-      </div>
+      <div class="wrap">
+        <p class="hero__status"><span class="dot" aria-hidden="true"></span>Amman, Jordan. Available for select work.</p>
 
-      <div class="container hero__inner">
-        <p class="hero__eyebrow reveal" data-reveal>
-          <span class="pulse"></span> Amman, Jordan · Available for select work
-        </p>
-        <h1 class="hero__title reveal" data-reveal>
-          Full Stack Web Developer building
-          <span class="grad-text">reliable platforms</span>
-          for healthcare &amp; government.
+        <h1 class="hero__title">
+          Full Stack Web Developer building reliable platforms for healthcare &amp; government.
         </h1>
-        <p class="hero__lead reveal" data-reveal>
-          I'm <strong>Alaaldeen Hammad</strong> — a PHP-focused engineer with 3+ years across
-          Laravel, Yii 2, and CodeIgniter. I take projects from requirements gathering
-          to production, with an eye on performance, stability, and clean code.
-        </p>
 
-        <div class="hero__actions reveal" data-reveal>
-          <a href="#projects" class="btn btn--primary">View my work</a>
-          <a href="#contact" class="btn btn--ghost">Contact me</a>
+        <div class="hero__body">
+          <div class="hero__copy">
+            <p class="hero__lead">
+              I'm <strong>Alaaldeen Hammad</strong> — a PHP-focused engineer with 3+ years across
+              Laravel, Yii 2, and CodeIgniter. I take projects from requirements gathering
+              to production, with an eye on performance, stability, and clean code.
+            </p>
+
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn--solid">View my work</a>
+              <a href="#contact" class="btn btn--line">Contact me</a>
+            </div>
+
+            <dl class="stats">
+              <div class="stat">
+                <dt><strong>3+</strong> years</dt>
+                <dd>Professionally shipping and maintaining production systems</dd>
+              </div>
+              <div class="stat">
+                <dt>PHP, Laravel, Yii&nbsp;2</dt>
+                <dd>Backend focus — APIs, business logic and databases</dd>
+              </div>
+              <div class="stat">
+                <dt>Requirements to production</dt>
+                <dd>End-to-end ownership, from gathering specs to release</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero__stack">
+            <div class="stack-wrap" aria-hidden="true">
+              <div class="stack" id="stack">
+                <span class="slab slab--ui"></span>
+                <span class="slab slab--app"></span>
+                <span class="slab slab--data"></span>
+              </div>
+            </div>
+
+            <ul class="layers" aria-label="The layers I work across">
+              <li>
+                <button class="layer" type="button" data-layer="ui" aria-pressed="false">
+                  <strong>Frontend</strong>
+                  <span>Responsive interfaces people actually use</span>
+                </button>
+              </li>
+              <li>
+                <button class="layer" type="button" data-layer="app" aria-pressed="false">
+                  <strong>Backend</strong>
+                  <span>APIs and business logic in PHP</span>
+                </button>
+              </li>
+              <li>
+                <button class="layer" type="button" data-layer="data" aria-pressed="false">
+                  <strong>Data</strong>
+                  <span>MySQL, MUMPS and VistA integration</span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <dl class="hero__stats reveal" data-reveal>
-          <div class="hero__stat">
-            <svg class="hero__stat-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-            <dt><strong>3+</strong> years</dt>
-            <dd>Professionally shipping and maintaining production systems</dd>
-          </div>
-          <div class="hero__stat">
-            <svg class="hero__stat-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v12c0 1.66 3.13 3 7 3s7-1.34 7-3V6"/><path d="M5 12c0 1.66 3.13 3 7 3s7-1.34 7-3"/></svg>
-            <dt>PHP · Laravel · Yii&nbsp;2</dt>
-            <dd>Backend focus — APIs, business logic and databases</dd>
-          </div>
-          <div class="hero__stat">
-            <svg class="hero__stat-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg>
-            <dt>Requirements → production</dt>
-            <dd>End-to-end ownership, from gathering specs to release</dd>
-          </div>
-        </dl>
       </div>
-
-      <a href="#about" class="scroll-cue" aria-label="Scroll to about section">
-        <span></span>
-      </a>
     </section>
 
     <!-- ================= About ================= -->
     <section class="section" id="about">
-      <div class="container">
-        <header class="section__head reveal" data-reveal>
-          <span class="section__index">01</span>
-          <h2 class="section__title">About</h2>
-        </header>
+      <div class="wrap about">
+        <h2 class="section__title">About</h2>
 
-        <div class="about__grid">
-          <div class="about__lead reveal" data-reveal>
-            <p>
-              Detail-oriented and proactive full-stack PHP developer with 3 years of
-              experience specializing in <strong>Laravel</strong>, <strong>CodeIgniter</strong>,
-              and the <strong>Yii&nbsp;2</strong> framework. I'm comfortable owning the
-              technical side of a project end to end — from gathering requirements and
-              coordinating with clients to shipping and maintaining the final product.
-            </p>
-            <p>
-              Today I work on the <strong>Hakeem Healthcare System</strong> at EHS, contributing
-              to national healthcare and justice platforms in Jordan, and I'm committed to
-              continuous learning and pragmatic problem-solving.
-            </p>
-          </div>
-
-          <ul class="about__facts reveal" data-reveal>
-            <li><span>Based in</span><strong>Amman, Jordan</strong></li>
-            <li><span>Role</span><strong>Software Engineer Specialist</strong></li>
-            <li><span>Focus</span><strong>Healthcare &amp; gov platforms</strong></li>
-            <li><span>Languages</span><strong>English</strong></li>
-          </ul>
+        <div class="about__lead">
+          <p>
+            Detail-oriented and proactive full-stack PHP developer with 3 years of
+            experience specializing in Laravel, CodeIgniter, and the Yii&nbsp;2 framework.
+            I'm comfortable owning the technical side of a project end to end — from
+            gathering requirements and coordinating with clients to shipping and
+            maintaining the final product.
+          </p>
+          <p>
+            Today I work on the Hakeem Healthcare System at EHS, contributing
+            to national healthcare and justice platforms in Jordan, and I'm committed to
+            continuous learning and pragmatic problem-solving.
+          </p>
         </div>
+
+        <dl class="facts">
+          <div><dt>Based in</dt><dd>Amman, Jordan</dd></div>
+          <div><dt>Role</dt><dd>Software Engineer Specialist</dd></div>
+          <div><dt>Focus</dt><dd>Healthcare &amp; gov platforms</dd></div>
+          <div><dt>Languages</dt><dd>English</dd></div>
+        </dl>
       </div>
     </section>
 
     <!-- ================= Experience ================= -->
-    <section class="section section--alt" id="experience">
-      <div class="container">
-        <header class="section__head reveal" data-reveal>
-          <span class="section__index">02</span>
-          <h2 class="section__title">Experience</h2>
-        </header>
+    <section class="section section--tint" id="experience">
+      <div class="wrap">
+        <h2 class="section__title">Experience</h2>
 
-        <ol class="timeline">
-          <li class="timeline__item reveal" data-reveal>
-            <div class="timeline__marker"></div>
-            <div class="timeline__card">
-              <p class="timeline__period">Jan 2026 — Present</p>
-              <h3 class="timeline__role">Software Engineer Specialist</h3>
-              <p class="timeline__org">EHS — Electronic Healthcare Solutions · King Hussein Business Park, Amman</p>
-              <ul class="timeline__points">
-                <li>Develop and enhance the Hakeem Healthcare System using MUMPS and the Yii&nbsp;2 framework.</li>
-                <li>Deliver digital and healthcare solutions for the Ministry of Justice and the Ministry of Digital Economy in Jordan.</li>
-                <li>Leverage VistA systems for efficient integration and functionality across projects.</li>
-              </ul>
-            </div>
+        <ol class="xp">
+          <li class="xp__item xp__item--current">
+            <p class="xp__period">Jan 2026 — Present</p>
+            <h3 class="xp__role">Software Engineer Specialist</h3>
+            <p class="xp__org">EHS — Electronic Healthcare Solutions, King Hussein Business Park, Amman</p>
+            <ul class="xp__points">
+              <li>Develop and enhance the Hakeem Healthcare System using MUMPS and the Yii&nbsp;2 framework.</li>
+              <li>Deliver digital and healthcare solutions for the Ministry of Justice and the Ministry of Digital Economy in Jordan.</li>
+              <li>Leverage VistA systems for efficient integration and functionality across projects.</li>
+            </ul>
           </li>
 
-          <li class="timeline__item reveal" data-reveal>
-            <div class="timeline__marker"></div>
-            <div class="timeline__card">
-              <p class="timeline__period">Jan 2025 — Jan 2026</p>
-              <h3 class="timeline__role">Software Engineer Officer</h3>
-              <p class="timeline__org">EHS — Electronic Healthcare Solutions · King Hussein Business Park, Amman</p>
-              <ul class="timeline__points">
-                <li>Contributed to development and enhancement of the Hakeem Healthcare System (MUMPS, Yii&nbsp;2).</li>
-                <li>Supported projects for the Ministry of Justice and the Ministry of Digital Economy.</li>
-              </ul>
-            </div>
+          <li class="xp__item">
+            <p class="xp__period">Jan 2025 — Jan 2026</p>
+            <h3 class="xp__role">Software Engineer Officer</h3>
+            <p class="xp__org">EHS — Electronic Healthcare Solutions, King Hussein Business Park, Amman</p>
+            <ul class="xp__points">
+              <li>Contributed to development and enhancement of the Hakeem Healthcare System (MUMPS, Yii&nbsp;2).</li>
+              <li>Supported projects for the Ministry of Justice and the Ministry of Digital Economy.</li>
+            </ul>
           </li>
 
-          <li class="timeline__item reveal" data-reveal>
-            <div class="timeline__marker"></div>
-            <div class="timeline__card">
-              <p class="timeline__period">Jan 2023</p>
-              <h3 class="timeline__role">Full Stack Web Developer &amp; Project Coordinator</h3>
-              <p class="timeline__org">Ncit Solutions · Amman</p>
-              <ul class="timeline__points">
-                <li>Built, maintained, and optimized web applications with Laravel and CodeIgniter for robust functionality and high performance.</li>
-                <li>Created responsive front-end interfaces with HTML, CSS, JavaScript, jQuery, Bootstrap, and Tailwind.</li>
-                <li>Integrated and customized WordPress themes and plugins for tailor-made client solutions.</li>
-                <li>Led client meetings for requirements, progress updates, and alignment; managed end-to-end project lifecycles.</li>
-                <li>Troubleshot complex issues to improve stability, performance, and security; contributed to code reviews.</li>
-                <li>Practiced agile: sprint planning, daily stand-ups, and retrospectives.</li>
-              </ul>
-            </div>
+          <li class="xp__item">
+            <p class="xp__period">Jan 2023</p>
+            <h3 class="xp__role">Full Stack Web Developer &amp; Project Coordinator</h3>
+            <p class="xp__org">Ncit Solutions, Amman</p>
+            <ul class="xp__points">
+              <li>Built, maintained, and optimized web applications with Laravel and CodeIgniter for robust functionality and high performance.</li>
+              <li>Created responsive front-end interfaces with HTML, CSS, JavaScript, jQuery, Bootstrap, and Tailwind.</li>
+              <li>Integrated and customized WordPress themes and plugins for tailor-made client solutions.</li>
+              <li>Led client meetings for requirements, progress updates, and alignment; managed end-to-end project lifecycles.</li>
+              <li>Troubleshot complex issues to improve stability, performance, and security; contributed to code reviews.</li>
+              <li>Practiced agile: sprint planning, daily stand-ups, and retrospectives.</li>
+            </ul>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- ================= Skills ================= -->
-    <section class="section" id="skills">
-      <div class="container">
-        <header class="section__head reveal" data-reveal>
-          <span class="section__index">03</span>
-          <h2 class="section__title">Skills &amp; Tooling</h2>
-        </header>
+    <section class="section section--skills" id="skills">
+      <div class="wrap">
+        <h2 class="section__title">Skills &amp; Tooling</h2>
+      </div>
 
-        <div class="skills__grid">
-          <article class="skill-card reveal" data-reveal>
-            <h3>Backend</h3>
-            <ul class="tags">
-              <li>PHP</li><li>Laravel</li><li>Yii&nbsp;2</li><li>CodeIgniter</li><li>MySQL</li><li>MUMPS</li>
-            </ul>
-          </article>
-
-          <article class="skill-card reveal" data-reveal>
+      <div class="bands">
+        <article class="band">
+          <div class="wrap band__inner">
             <h3>Frontend</h3>
-            <ul class="tags">
+            <ul>
               <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>jQuery</li><li>Bootstrap</li><li>Tailwind</li>
             </ul>
-          </article>
-
-          <article class="skill-card reveal" data-reveal>
+          </div>
+        </article>
+        <article class="band">
+          <div class="wrap band__inner">
+            <h3>Backend</h3>
+            <ul>
+              <li>PHP</li><li>Laravel</li><li>Yii&nbsp;2</li><li>CodeIgniter</li><li>MySQL</li><li>MUMPS</li>
+            </ul>
+          </div>
+        </article>
+        <article class="band">
+          <div class="wrap band__inner">
             <h3>Platforms &amp; Tools</h3>
-            <ul class="tags">
+            <ul>
               <li>Git</li><li>WordPress</li><li>VistA</li><li>Python</li><li>REST APIs</li>
             </ul>
-          </article>
-
-          <article class="skill-card reveal" data-reveal>
+          </div>
+        </article>
+        <article class="band">
+          <div class="wrap band__inner">
             <h3>Ways of working</h3>
-            <ul class="tags">
+            <ul>
               <li>Agile / Scrum</li><li>Requirements gathering</li><li>Client coordination</li><li>Code review</li><li>Project lifecycle</li>
             </ul>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- ================= Projects ================= -->
-    <section class="section section--alt" id="projects">
-      <div class="container">
-        <header class="section__head reveal" data-reveal>
-          <span class="section__index">04</span>
+    <section class="section section--deep" id="projects">
+      <div class="wrap">
+        <header class="section__head">
           <h2 class="section__title">Selected Projects</h2>
           <p class="section__note">Production work across healthcare, government, and product teams — mostly PHP / Yii&nbsp;2 back ends.</p>
         </header>
 
-        <div class="projects__grid">
-          <!-- Featured -->
-          <article class="pcard pcard--featured reveal" data-reveal>
-            <p class="pcard__flag">Featured project</p>
-            <p class="pcard__domain">Healthcare · National platform</p>
-            <h3 class="pcard__title">Hakeem Healthcare System</h3>
-            <p class="pcard__summary">
+        <!-- Featured -->
+        <article class="feature">
+          <div class="feature__main">
+            <p class="flag">Featured project</p>
+            <p class="project__domain">Healthcare, national platform</p>
+            <h3 class="feature__title">Hakeem Healthcare System</h3>
+            <p class="feature__summary">
               Feature development and enhancements on <strong>Jordan's national electronic
               health platform</strong> — a large MUMPS codebase with a Yii&nbsp;2 application
               layer and VistA integration.
             </p>
-
-            <dl class="pcard__meta">
+            <dl class="project__meta">
               <div>
                 <dt>What it does</dt>
                 <dd>Manages electronic health records and clinical workflows for public healthcare providers.</dd>
@@ -277,115 +281,105 @@
                 <dd>Build and enhance existing modules, ship new features, and integrate with VistA-based systems.</dd>
               </div>
             </dl>
+          </div>
 
-            <div class="pcard__block">
-              <p class="pcard__block-label">Engineering focus</p>
-              <ul class="pcard__list">
-                <li>Contributing to a large, long-lived MUMPS system alongside a Yii&nbsp;2 (PHP) application layer.</li>
-                <li>Integrating with VistA systems for data exchange and interoperability across projects.</li>
-                <li>Healthcare-domain complexity: structured clinical data and regulated workflows.</li>
-              </ul>
-            </div>
+          <div class="feature__side">
+            <h4>Engineering focus</h4>
+            <ul class="feature__list">
+              <li>Contributing to a large, long-lived MUMPS system alongside a Yii&nbsp;2 (PHP) application layer.</li>
+              <li>Integrating with VistA systems for data exchange and interoperability across projects.</li>
+              <li>Healthcare-domain complexity: structured clinical data and regulated workflows.</li>
+            </ul>
+            <ul class="chips"><li>MUMPS</li><li>Yii&nbsp;2</li><li>PHP</li><li>VistA</li></ul>
+            <p class="badge">Current work at EHS</p>
+          </div>
+        </article>
 
-            <ul class="tags tags--sm"><li>MUMPS</li><li>Yii&nbsp;2</li><li>PHP</li><li>VistA</li></ul>
-
-            <div class="pcard__foot">
-              <span class="pcard__badge">Current work · EHS</span>
-            </div>
-          </article>
-
-          <!-- Ministry of Justice -->
-          <article class="pcard reveal" data-reveal>
-            <p class="pcard__domain">Government · Justice sector</p>
-            <h3 class="pcard__title">Medical Committee System</h3>
-            <p class="pcard__summary">A web application for the Jordanian Ministry of Justice that digitizes medical committee case handling and record-keeping.</p>
-            <dl class="pcard__meta">
+        <div class="projects">
+          <article class="project">
+            <p class="project__domain">Government, justice sector</p>
+            <h3 class="project__title">Medical Committee System</h3>
+            <p class="project__summary">A web application for the Jordanian Ministry of Justice that digitizes medical committee case handling and record-keeping.</p>
+            <dl class="project__meta">
               <div>
                 <dt>My role</dt>
                 <dd>Delivered application features on a Yii&nbsp;2 back end with a MySQL relational data model.</dd>
               </div>
             </dl>
-            <ul class="tags tags--sm"><li>Yii&nbsp;2</li><li>PHP</li><li>MySQL</li></ul>
-            <div class="pcard__foot">
-              <span class="pcard__badge pcard__badge--muted">Government · delivered</span>
-            </div>
+            <ul class="chips"><li>Yii&nbsp;2</li><li>PHP</li><li>MySQL</li></ul>
+            <p class="badge badge--quiet">Government, delivered</p>
           </article>
 
-          <!-- Suraxy -->
-          <article class="pcard reveal" data-reveal>
-            <p class="pcard__domain">Product · Private</p>
-            <h3 class="pcard__title">Suraxy Platform</h3>
-            <p class="pcard__summary">A cross-platform mobile app, backed by a web admin dashboard, for the Suraxy platform.</p>
-            <dl class="pcard__meta">
+          <article class="project">
+            <p class="project__domain">Product, private</p>
+            <h3 class="project__title">Suraxy Platform</h3>
+            <p class="project__summary">A cross-platform mobile app, backed by a web admin dashboard, for the Suraxy platform.</p>
+            <dl class="project__meta">
               <div>
                 <dt>My role</dt>
                 <dd>Built the React&nbsp;Native mobile client — shipped to the App Store and Google Play — and worked on the web admin dashboard behind it.</dd>
               </div>
             </dl>
-            <ul class="tags tags--sm"><li>React&nbsp;Native</li><li>iOS</li><li>Android</li></ul>
-            <div class="pcard__foot">
-              <span class="pcard__badge">Live · App Store &amp; Google Play</span>
-            </div>
+            <ul class="chips"><li>React&nbsp;Native</li><li>iOS</li><li>Android</li></ul>
+            <p class="badge">Live on App Store &amp; Google Play</p>
           </article>
 
-          <!-- Client apps -->
-          <article class="pcard reveal" data-reveal>
-            <p class="pcard__domain">Agency · Ncit Solutions</p>
-            <h3 class="pcard__title">Client Web Applications</h3>
-            <p class="pcard__summary">Production web apps and CMS builds delivered for a range of agency clients.</p>
-            <dl class="pcard__meta">
+          <article class="project">
+            <p class="project__domain">Agency, Ncit Solutions</p>
+            <h3 class="project__title">Client Web Applications</h3>
+            <p class="project__summary">Production web apps and CMS builds delivered for a range of agency clients.</p>
+            <dl class="project__meta">
               <div>
                 <dt>My role</dt>
                 <dd>Developed and maintained Laravel and CodeIgniter apps, customized WordPress themes and plugins, and coordinated delivery with clients through to release.</dd>
               </div>
             </dl>
-            <ul class="tags tags--sm"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li><li>jQuery</li><li>MySQL</li></ul>
-            <div class="pcard__foot">
-              <span class="pcard__badge pcard__badge--muted">2023 · agency delivery</span>
-            </div>
-          </article>
-
-          <!-- CTA -->
-          <article class="pcard pcard--cta reveal" data-reveal>
-            <h3 class="pcard__title">More on GitHub</h3>
-            <p class="pcard__summary">Personal projects, experiments, and code samples.</p>
-            <a href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener" class="btn btn--sm btn--ghost">View GitHub profile →</a>
+            <ul class="chips"><li>Laravel</li><li>CodeIgniter</li><li>WordPress</li><li>jQuery</li><li>MySQL</li></ul>
+            <p class="badge badge--quiet">2023, agency delivery</p>
           </article>
         </div>
+
+        <a class="more" href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener">
+          <span class="more__title">More on GitHub</span>
+          <span class="more__text">Personal projects, experiments, and code samples.</span>
+        </a>
       </div>
     </section>
 
     <!-- ================= Contact ================= -->
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="contact reveal" data-reveal>
-          <span class="section__index">05</span>
-          <h2 class="contact__title">Let's build something<br /><span class="grad-text">solid</span> together.</h2>
-          <p class="contact__lead">
-            Open to full-stack roles and select freelance projects. The fastest way to
-            reach me is email or LinkedIn.
-          </p>
+    <section class="section section--contact" id="contact">
+      <div class="wrap">
+        <h2 class="contact__title">Let's build something solid together.</h2>
+        <p class="contact__lead">
+          Open to full-stack roles and select freelance projects. The fastest way to
+          reach me is email or LinkedIn.
+        </p>
 
-          <div class="contact__actions">
-            <a href="mailto:alaah868@gmail.com" class="btn btn--primary btn--lg">alaah868@gmail.com</a>
-            <a href="tel:+962790999653" class="btn btn--ghost btn--lg">+962 79 099 9653</a>
-          </div>
-
-          <ul class="contact__links">
-            <li><a href="https://www.linkedin.com/in/ala-aldin-hammad-469180233/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
-            <li><a href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener">GitHub ↗</a></li>
-          </ul>
+        <div class="contact__mail">
+          <a href="mailto:alaah868@gmail.com" class="contact__email">alaah868@gmail.com</a>
+          <button class="btn btn--solid" id="copyEmail" type="button" data-copy="alaah868@gmail.com">Copy email</button>
         </div>
+
+        <dl class="contact__list">
+          <div><dt>Phone</dt><dd><a href="tel:+962790999653">+962 79 099 9653</a></dd></div>
+          <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/ala-aldin-hammad-469180233/" target="_blank" rel="noopener">linkedin.com/in/ala-aldin-hammad</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/AlaaldeenHammad" target="_blank" rel="noopener">github.com/AlaaldeenHammad</a></dd></div>
+        </dl>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container site-footer__inner">
+    <div class="wrap site-footer__inner">
       <p>© <span id="year">2026</span> Alaaldeen Hammad. Built with HTML, CSS &amp; JavaScript.</p>
-      <a href="#home" class="footer__top">Back to top ↑</a>
     </div>
   </footer>
+
+  <a href="#home" class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </a>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/main.js"></script>
 </body>
