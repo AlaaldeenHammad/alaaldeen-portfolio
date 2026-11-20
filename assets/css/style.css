@@ -168,7 +168,7 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 .mobile-nav a { display: block; padding: 1.1rem 0; font-family: var(--font-ui); font-weight: 800; font-stretch: 78%; font-size: clamp(2.4rem, 12vw, 3.6rem); letter-spacing: -0.02em; line-height: 1; }
 
 /* ---------- Sections (base) ---------- */
-.section { padding-block: clamp(4.5rem, 9vw, 8rem); }
+.section { padding-block: clamp(4.5rem, 9vw, 8rem); background: var(--paper); }
 .section__head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 .section__head .section__title { margin-bottom: 1.2rem; }
 .section__note { max-width: 56ch; color: inherit; opacity: 0.8; }
@@ -181,7 +181,7 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 .section--contact { background: var(--cyan); color: var(--deep); --focus: var(--deep); }
 
 /* ---------- Hero ---------- */
-.hero { padding-top: calc(var(--header-h) + clamp(2rem, 5vw, 4rem)); padding-bottom: clamp(3.5rem, 7vw, 6rem); }
+.hero { background: var(--paper); padding-top: calc(var(--header-h) + clamp(2rem, 5vw, 4rem)); padding-bottom: clamp(3.5rem, 7vw, 6rem); }
 
 .hero__status { display: flex; align-items: center; gap: 0.6rem; font-family: var(--font-ui); font-size: 0.98rem; color: var(--muted); margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
 .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent-ink); box-shadow: 0 0 0 0 var(--accent-ink); animation: ping 2.6s infinite; }
@@ -352,6 +352,19 @@ h1, h2, h3, h4 { font-family: var(--font-ui); font-weight: 700; line-height: 1; 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--deep); color: var(--deep-text); padding-block: 1.8rem; font-family: var(--font-ui); font-size: 0.95rem; --focus: #fff; }
 .site-footer__inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
+/* ---------- Layered sections (class added by main.js when GSAP runs) ----------
+   Each section is a layer that slides over the one before it. The covered layer
+   is scaled back and dimmed by ScrollTrigger; sticky `top` is set per section in JS. */
+.has-layers main { background: var(--deep); }
+.has-layers main > section { position: sticky; top: 0; transform-origin: 50% 100%; }
+.has-layers main > section + section {
+  --lift: clamp(20px, 3vw, 36px);
+  margin-top: calc(-1 * var(--lift));
+  border-radius: var(--lift) var(--lift) 0 0;
+  box-shadow: 0 -18px 40px -16px rgba(0, 0, 0, 0.45);
+}
+.layer-dim { position: absolute; inset: 0; z-index: 5; border-radius: inherit; background: #000; opacity: 0; pointer-events: none; }
+
 /* ---------- Floating back-to-top ---------- */
 .to-top {
   position: fixed; right: clamp(1rem, 2.5vw, 2rem); bottom: clamp(1rem, 2.5vw, 2rem); z-index: 90;

@@ -63,21 +63,104 @@
     });
   }
 
-  /* ---------- Active nav link (scroll spy) ---------- */
-  var sections = Array.prototype.slice.call(doc.querySelectorAll("main section[id]"));
+  /* ---------- Sections as layers ----------
+     Each section is a layer. Sticky positioning lets the next one slide over
+     the previous, and GSAP ScrollTrigger scrubs the covered layer back and
+     dims it. Sticky elements report shifted offsets, so every position used
+     for anchors and the scroll spy is the natural (unstuck) top, measured
+     from layout and cached in `tops`. */
+  var sectionEls = Array.prototype.slice.call(doc.querySelectorAll("main > section[id]"));
   var navLinks = Array.prototype.slice.call(doc.querySelectorAll(".nav__list a"));
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
+  var layered = hasGsap && !reduceMotion;
+  var tops = [];
 
-  if ("IntersectionObserver" in window && navLinks.length) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var id = entry.target.getAttribute("id");
-        navLinks.forEach(function (link) {
-          link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
-        });
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-    sections.forEach(function (s) { spy.observe(s); });
+  function measure() {
+    var main = doc.getElementById("main");
+    var y = main ? main.offsetTop : 0;
+    sectionEls.forEach(function (el, i) {
+      y += parseFloat(getComputedStyle(el).marginTop) || 0;
+      tops[i] = y;
+      y += el.offsetHeight;
+      if (layered && i < sectionEls.length - 1) {
+        // Stick once the bottom edge reaches the viewport bottom (or the top edge reaches 0 for short sections).
+        el.style.top = Math.min(0, window.innerHeight - el.offsetHeight) + "px";
+      }
+    });
+  }
+
+  function updateSpy() {
+    var line = window.scrollY + window.innerHeight * 0.4;
+    var current = null;
+    sectionEls.forEach(function (el, i) { if (tops[i] <= line) current = el.id; });
+    navLinks.forEach(function (link) {
+      link.classList.toggle("is-active", link.getAttribute("href") === "#" + current);
+    });
+  }
+
+  function goTo(id, smooth) {
+    var i = sectionEls.findIndex(function (el) { return el.id === id; });
+    if (i < 0) return false;
+    window.scrollTo({ top: i === 0 ? 0 : tops[i], behavior: smooth && !reduceMotion ? "smooth" : "auto" });
+    return true;
+  }
+
+  if (layered) {
+    gsap.registerPlugin(ScrollTrigger);
+    root.classList.add("has-layers");
+
+    sectionEls.forEach(function (el, i) {
+      var dim = doc.createElement("span");
+      dim.className = "layer-dim";
+      dim.setAttribute("aria-hidden", "true");
+      el.appendChild(dim);
+
+      if (i === 0) return;
+      gsap.timeline({
+        scrollTrigger: { trigger: el, start: "top bottom", end: "top 15%", scrub: true }
+      })
+        .to(sectionEls[i - 1], { scale: 0.94, ease: "none" }, 0)
+        .to(sectionEls[i - 1].querySelector(".layer-dim"), { opacity: 0.6, ease: "none" }, 0);
+    });
+
+    Array.prototype.forEach.call(doc.querySelectorAll(".section__title, .contact__title"), function (title) {
+      gsap.fromTo(title,
+        { clipPath: "inset(0 0 100% 0)", y: 40 },
+        { clipPath: "inset(0 0 0% 0)", y: 0, duration: 0.9, ease: "power3.out", clearProps: "clipPath,transform",
+          scrollTrigger: { trigger: title, start: "top 85%", once: true } });
+    });
+  }
+
+  measure();
+  updateSpy();
+  window.addEventListener("scroll", updateSpy, { passive: true });
+
+  var resizeTimer;
+  function remeasure() {
+    measure();
+    updateSpy();
+    if (layered) ScrollTrigger.refresh();
+  }
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(remeasure, 150);
+  });
+  window.addEventListener("load", remeasure);
+  if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(remeasure);
+
+  // Section links scroll to the natural top, not the sticky-shifted one.
+  doc.addEventListener("click", function (e) {
+    var link = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!link) return;
+    var id = link.getAttribute("href").slice(1);
+    if (goTo(id, true)) {
+      e.preventDefault();
+      if (history.pushState) history.pushState(null, "", "#" + id);
+    }
+  });
+  if (location.hash) {
+    window.addEventListener("load", function () { goTo(location.hash.slice(1), false); });
   }
 
   /* ---------- Hero stack: legend drives the 3D layers ---------- */
